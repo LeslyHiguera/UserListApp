@@ -13,21 +13,23 @@ class UsersListAdapter: NSObject {
     
     var viewModel: UsersListViewModel
     
-    internal init(viewModel: UsersListViewModel) {
-        self.viewModel = viewModel
-    }
-    
     // MARK: - Observable Properties
     
     var didSelectItemAt: Observable <UsersData> {
         mutableDidSelectItemAt
     }
     
+    // MARK: - Private Observable Properties
+    
     private var mutableDidSelectItemAt = MutableObservable<UsersData>()
     
+    // MARK: - Initializers
+    
+    internal init(viewModel: UsersListViewModel) {
+        self.viewModel = viewModel
+    }
+    
 }
-
-
 
 // MARK: - UITableViewDataSource
 
@@ -42,9 +44,7 @@ extension UsersListAdapter: UITableViewDataSource {
         return cell
     }
     
-    
 }
-
 
 // MARK: - UITableViewDelegate
 

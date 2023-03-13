@@ -25,6 +25,8 @@ class DetailUserViewController: UIViewController {
     
     var userData: UsersData?
     
+    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()

@@ -22,6 +22,8 @@ class UsersListViewController: UIViewController {
     
     lazy var adapter = UsersListAdapter(viewModel: viewModel)
     
+    //
+    
     init(viewModel: UsersListViewModel, router: UsersListRouter) {
         self.viewModel = viewModel
         self.router = router
@@ -33,6 +35,8 @@ class UsersListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -41,7 +45,7 @@ class UsersListViewController: UIViewController {
         setupBindings()
     }
     
-    // MARK: - Methods
+    // MARK: - Private Methods
     
     private func setupUI() {
         activityIndicator.hidesWhenStopped = true
@@ -50,6 +54,10 @@ class UsersListViewController: UIViewController {
     
     private func getUsersList() {
         viewModel.getUsersList()
+    }
+    
+    private func getUsersListLocally() {
+        viewModel.getUsersListLocally()
     }
     
     private func setupBindings() {
@@ -74,8 +82,9 @@ class UsersListViewController: UIViewController {
             usersTableView.reloadData()
         case .errorMessage(let error):
             print(error)
-            showAlert(title: "Alert!", message: "Has been ocurred a error!", action: { _ in
-                self.activityIndicator.startAnimating()
+            showAlert(title: "Connection error!", message: "Tap OK to work with local data or Retry to connect to the Internet ", okAction: { _ in
+                self.getUsersListLocally()
+            }, retryAction: { _ in
                 self.getUsersList()
             })
         }

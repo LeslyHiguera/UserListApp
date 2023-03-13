@@ -34,6 +34,15 @@ class UsersListRepository: UsersListRepositoryProtocol {
             usersCoreData.email = user.email
             usersCoreData.phone = user.phone
             usersCoreData.website = user.website
+            usersCoreData.street = user.address?.street
+            usersCoreData.suite = user.address?.suite
+            usersCoreData.city = user.address?.city
+            usersCoreData.zipcode = user.address?.zipcode
+            usersCoreData.lat = user.address?.geo?.lat
+            usersCoreData.lng = user.address?.geo?.lng
+            usersCoreData.companyName = user.company?.name
+            usersCoreData.catchPhrase = user.company?.catchPhrase
+            usersCoreData.bs = user.company?.bs
             appDelegate.saveContext()
         }
     }
@@ -45,16 +54,23 @@ class UsersListRepository: UsersListRepositoryProtocol {
         var usersData: [UsersData] = []
         do {
             let fetchRequest: NSFetchRequest<UsersCD> = UsersCD.fetchRequest()
-            let coreDataAnimes = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
-            coreDataAnimes.forEach {
+            let usersCoreData = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+            usersCoreData.forEach {
                 let dataCD = UsersData(id: Int($0.id),
                                        name: $0.name,
                                        username: $0.username,
                                        email: $0.email,
-                                       address: Address(street: "", suite: "", city: "", zipcode: "", geo: Geo(lat: "", lng: "")),
+                                       address: Address(street: $0.street,
+                                                        suite: $0.suite,
+                                                        city: $0.city,
+                                                        zipcode: $0.zipcode,
+                                                        geo: Geo(lat: $0.lat,
+                                                                 lng: $0.lng)),
                                        phone: $0.phone,
                                        website: $0.website,
-                                       company: Company(name: "", catchPhrase: "", bs: ""))
+                                       company: Company(name: $0.companyName,
+                                                        catchPhrase: $0.catchPhrase,
+                                                        bs: $0.bs))
                 usersData.append(dataCD)
             }
         } catch {
@@ -67,11 +83,12 @@ class UsersListRepository: UsersListRepositoryProtocol {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
+        
         do {
             let fetchRequest: NSFetchRequest<UsersCD> = UsersCD.fetchRequest()
-            let coreDataUsers = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+            let usersCoreData = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
             
-            coreDataUsers.forEach {
+            usersCoreData.forEach {
                 appDelegate.persistentContainer.viewContext.delete($0)
             }
             try appDelegate.persistentContainer.viewContext.save()

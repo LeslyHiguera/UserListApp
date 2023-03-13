@@ -17,8 +17,6 @@ class UsersListViewModel {
     
     // MARK: - Internal Properties
     
-    var error: GenericCompletionHandler<String> = { _ in }
-    var success: CompletionHandler = {}
     var usersList: [UsersData] = []
     
     // MARK: - Private Properties
@@ -31,6 +29,8 @@ class UsersListViewModel {
         mutableOutputEvents
     }
     
+    // MARK: - Private Observable Properties
+    
     private let mutableOutputEvents = MutableObservable<UsersListViewModelOutput>()
     
     // MARK: - Initializers
@@ -42,14 +42,6 @@ class UsersListViewModel {
     // MARK: - Internal Methods
     
     func getUsersList() {
-        print("--Get users list--")
-        let localUsers = repository.getUsers()
-        if localUsers.count > 0  {
-            self.usersList = localUsers
-            self.mutableOutputEvents.postValue(.didGetData)
-            return
-        }
-        
         mutableOutputEvents.postValue(.isLoading(true))
         repository.getUsersList { result in
             self.mutableOutputEvents.postValue(.isLoading(false))
@@ -62,6 +54,15 @@ class UsersListViewModel {
             case .failure(let error):
                 self.mutableOutputEvents.postValue(.errorMessage(error.localizedDescription))
             }
+        }
+    }
+    
+    func getUsersListLocally() {
+        let localUsers = repository.getUsers()
+        if !localUsers.isEmpty {
+            self.usersList = localUsers
+            self.mutableOutputEvents.postValue(.didGetData)
+            return
         }
     }
     

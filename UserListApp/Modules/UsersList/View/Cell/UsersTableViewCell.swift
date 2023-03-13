@@ -15,14 +15,17 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet private weak var emailLabel: UILabel!
     @IBOutlet private weak var websideLabel: UILabel!
     
+    // MARK: - Internal Properties
+    
     var userData: UsersData? {
         didSet {
             setupCell()
         }
     }
     
+    // MARK: - Private Methods
+    
     private func setupCell() {
-        
         nameLabel.text = userData?.name
         emailLabel.text = userData?.email
         websideLabel.text = userData?.website
