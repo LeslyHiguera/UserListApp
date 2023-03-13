@@ -2,7 +2,7 @@
 //  UsersListViewController.swift
 //  UserListApp
 //
-//  Created by Lesly Higuera on 11/03/23.
+//  Created by Lesly Dahian Higuera Martínez on 11/03/23.
 //
 
 import UIKit
@@ -22,7 +22,7 @@ class UsersListViewController: UIViewController {
     
     lazy var adapter = UsersListAdapter(viewModel: viewModel)
     
-    //
+    // MARK: - Initializers
     
     init(viewModel: UsersListViewModel, router: UsersListRouter) {
         self.viewModel = viewModel
@@ -35,7 +35,7 @@ class UsersListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //
+    // MARK: - Life Cycle ViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()

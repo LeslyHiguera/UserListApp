@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  UserListApp
 //
-//  Created by Lesly Higuera on 11/03/23.
+//  Created by Lesly Dahian Higuera Martínez on 11/03/23.
 //
 
 import UIKit

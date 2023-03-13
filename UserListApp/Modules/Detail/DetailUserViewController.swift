@@ -2,16 +2,16 @@
 //  DetailUsersViewController.swift
 //  UserListApp
 //
-//  Created by Lesly Higuera on 12/03/23.
+//  Created by Lesly Dahian Higuera Martínez on 12/03/23.
 //
 
 import UIKit
 
 class DetailUserViewController: UIViewController {
     
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -25,7 +25,7 @@ class DetailUserViewController: UIViewController {
     
     var userData: UsersData?
     
-    //
+    // MARK: - Life Cycle ViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +37,13 @@ class DetailUserViewController: UIViewController {
     private func setupView() {
         nameLabel.text = userData?.name
         usernameLabel.text = userData?.username
-        idLabel?.text = "Identification code: \(userData?.id ?? 0)"
+        idLabel.text = "Identification code: \(userData?.id ?? 0)"
         emailLabel.text = "Email: \(userData?.email ?? "")"
         addressLabel.text = "Address \n Street: \(userData?.address?.street ?? "") \n Suite: \(userData?.address?.suite ?? "") \n City: \(userData?.address?.city ?? "") \n Zipcode: \(userData?.address?.zipcode ?? "") \n Geo: \(userData?.address?.geo?.lat ?? "") \(userData?.address?.geo?.lng ?? "")"
         phoneLabel.text = "Phone: \(userData?.phone ?? "")"
         websiteLabel.text = "Website: \(userData?.website ?? "")"
-        companyLabel.text = "Company: \(userData?.company?.name ?? "") \n CatchPhrase: \(userData?.company?.catchPhrase ?? "") \n BS: \(userData?.company?.bs ?? "")"
+        companyLabel.text = "Company: \(userData?.company?.name ?? "") \nCatchPhrase: \(userData?.company?.catchPhrase ?? "") \nBS: \(userData?.company?.bs ?? "")"
 
-         
     }
 
 }
