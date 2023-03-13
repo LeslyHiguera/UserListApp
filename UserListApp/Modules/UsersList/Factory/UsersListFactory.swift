@@ -11,8 +11,10 @@ class UsersListFactory {
 
     static func configure() -> UIViewController {
         let repository = UsersListRepository()
+        let router = UsersListRouter()
         let viewModel = UsersListViewModel(repository: repository)
-        let controller = UsersListViewController(viewModel: viewModel)
+        let controller = UsersListViewController(viewModel: viewModel, router: router)
+        router.view = controller
         return controller
     }
     

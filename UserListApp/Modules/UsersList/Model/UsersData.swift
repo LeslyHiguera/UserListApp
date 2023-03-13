@@ -8,14 +8,6 @@
 import Foundation
 import UIKit
 
-struct UserInfo: Decodable {
-    let data: [UsersData]?
-    
-    init(data: [UsersData]?) {
-        self.data = data
-    }
-}
-
 struct UsersData: Codable {
     let id: Int?
     let name: String?

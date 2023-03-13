@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailUserViewController" customModule="UserListApp" customModuleProvider="target">
+            <connections>
+                <outlet property="addressLabel" destination="P0c-mv-b7v" id="Qdy-8h-w8P"/>
+                <outlet property="companyLabel" destination="5S1-Dh-uiT" id="MDs-LW-y26"/>
+                <outlet property="emailLabel" destination="ih1-Hy-jlZ" id="vbL-IK-UKP"/>
+                <outlet property="idLabel" destination="9e5-BR-hcK" id="yZk-AZ-4JL"/>
+                <outlet property="nameLabel" destination="l0y-iF-IvU" id="ObL-Qu-CoF"/>
+                <outlet property="phoneLabel" destination="8Tu-GW-rDJ" id="AAg-1g-rFE"/>
+                <outlet property="usernameLabel" destination="Bt5-Rf-IY0" id="d8e-cr-d3a"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="websiteLabel" destination="lgi-AZ-4Fw" id="YEt-H3-qzm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E08-ie-wH7">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pcP-g5-TVn">
+                            <rect key="frame" x="15" y="40" width="290" height="240.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYM-9F-XSm">
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="22.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0y-iF-IvU">
+                                            <rect key="frame" x="0.0" y="0.0" width="145" height="22.5"/>
+                                            <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                            <color key="textColor" systemColor="systemIndigoColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bt5-Rf-IY0">
+                                            <rect key="frame" x="145" y="0.0" width="145" height="22.5"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                            <color key="textColor" systemColor="systemIndigoColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQ5-a2-eFI">
+                                    <rect key="frame" x="0.0" y="32.5" width="290" height="208"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e5-BR-hcK">
+                                            <rect key="frame" x="0.0" y="0.0" width="290" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                            <color key="textColor" red="0.19849114740000001" green="0.52654022580000004" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ih1-Hy-jlZ">
+                                            <rect key="frame" x="0.0" y="37.5" width="290" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                            <color key="textColor" red="0.19849114740000001" green="0.52654022580000004" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-mv-b7v">
+                                            <rect key="frame" x="0.0" y="75" width="290" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                            <color key="textColor" red="0.19849114740000001" green="0.52654022580000004" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phone" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tu-GW-rDJ">
+                                            <rect key="frame" x="0.0" y="112.5" width="290" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                            <color key="textColor" red="0.19849114740000001" green="0.52654022580000004" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="webside" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgi-AZ-4Fw">
+                                            <rect key="frame" x="0.0" y="150" width="290" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                            <color key="textColor" red="0.19849114740000001" green="0.52654022580000004" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5S1-Dh-uiT">
+                                            <rect key="frame" x="0.0" y="187.5" width="290" height="20.5"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                            <color key="textColor" red="0.19849114740000001" green="0.52654022580000004" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="pcP-g5-TVn" firstAttribute="leading" secondItem="E08-ie-wH7" secondAttribute="leading" constant="15" id="694-NK-Xc4"/>
+                        <constraint firstItem="pcP-g5-TVn" firstAttribute="height" secondItem="E08-ie-wH7" secondAttribute="height" priority="250" id="6A2-31-pd9"/>
+                        <constraint firstAttribute="trailing" secondItem="pcP-g5-TVn" secondAttribute="trailing" constant="-15" id="Hnf-t0-CYr"/>
+                        <constraint firstItem="pcP-g5-TVn" firstAttribute="centerX" secondItem="E08-ie-wH7" secondAttribute="centerX" id="Xuv-2a-qvg"/>
+                        <constraint firstAttribute="bottom" secondItem="pcP-g5-TVn" secondAttribute="bottom" id="ZKn-Ie-Gnb"/>
+                        <constraint firstItem="pcP-g5-TVn" firstAttribute="top" secondItem="E08-ie-wH7" secondAttribute="top" constant="40" id="yUb-WH-dhq"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="E08-ie-wH7" secondAttribute="trailing" id="OgX-ol-HcR"/>
+                <constraint firstItem="E08-ie-wH7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OiC-Tm-B6b"/>
+                <constraint firstAttribute="bottom" secondItem="E08-ie-wH7" secondAttribute="bottom" id="heV-OV-I9A"/>
+                <constraint firstItem="E08-ie-wH7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wiz-0B-kgy"/>
+            </constraints>
+            <point key="canvasLocation" x="96.946564885496173" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

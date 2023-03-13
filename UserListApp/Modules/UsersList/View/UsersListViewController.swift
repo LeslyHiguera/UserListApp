@@ -18,10 +18,13 @@ class UsersListViewController: UIViewController {
     
     var viewModel: UsersListViewModel
     
-    lazy var adapter = UsersListAdapter(viewModel: viewModel, firstCV: usersTableView)
+    var router: UsersListRouter
     
-    init(viewModel: UsersListViewModel) {
+    lazy var adapter = UsersListAdapter(viewModel: viewModel)
+    
+    init(viewModel: UsersListViewModel, router: UsersListRouter) {
         self.viewModel = viewModel
+        self.router = router
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,34 +38,46 @@ class UsersListViewController: UIViewController {
         setupUI()
         setTableView()
         getUsersList()
+        setupBindings()
     }
     
     // MARK: - Methods
     
     private func setupUI() {
+        activityIndicator.hidesWhenStopped = true
         setupNavigationBar()
     }
     
     private func getUsersList() {
         viewModel.getUsersList()
-        activityIndicator.startAnimating()
-        viewModel.success = { [weak self] in
-            guard let self = self else { return }
-            if !self.viewModel.usersList.isEmpty {
-                self.activityIndicator.stopAnimating()
-            }
-            self.usersTableView.reloadData()
+    }
+    
+    private func setupBindings() {
+        viewModel.outputEvents.observe { [weak self] event in
+            self?.validateEvents(event: event)
         }
-        viewModel.error = { [weak self] error in
-            guard let self = self else { return }
-            self.activityIndicator.stopAnimating()
-            let alertView = UIAlertController(title: "", message: error, preferredStyle: .alert)
-            alertView.addAction(.init(title: "Ok", style: .default))
-            alertView.addAction(.init(title: "Reintentar", style: .default, handler: { _ in
+        
+        adapter.didSelectItemAt.observe { [unowned self] userDescription in
+            router.goToUserDetail(userData: userDescription)
+        }
+    }
+    
+    private func validateEvents(event: UsersListViewModelOutput) {
+        switch event {
+        case .isLoading(let isLoading):
+            if isLoading {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+            }
+        case .didGetData:
+            usersTableView.reloadData()
+        case .errorMessage(let error):
+            print(error)
+            showAlert(title: "Alert!", message: "Has been ocurred a error!", action: { _ in
                 self.activityIndicator.startAnimating()
-                self.viewModel.getUsersList()
-            }))
-            self.present(alertView, animated: true)
+                self.getUsersList()
+            })
         }
     }
     
@@ -82,6 +97,5 @@ class UsersListViewController: UIViewController {
         navigationBar?.backgroundColor = UIColor.systemIndigo
         navigationBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
-
 
 }

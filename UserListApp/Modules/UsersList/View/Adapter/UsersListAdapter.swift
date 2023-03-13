@@ -12,11 +12,9 @@ class UsersListAdapter: NSObject {
     // MARK: - Properties
     
     var viewModel: UsersListViewModel
-    var firstCV: UITableView
     
-    internal init(viewModel: UsersListViewModel, firstCV: UITableView) {
+    internal init(viewModel: UsersListViewModel) {
         self.viewModel = viewModel
-        self.firstCV = firstCV
     }
     
     // MARK: - Observable Properties
@@ -52,22 +50,10 @@ extension UsersListAdapter: UITableViewDataSource {
 
 extension UsersListAdapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       if tableView == firstCV {
-            let vc = DetailUsersViewController()
-            vc.showUsers = viewModel.usersList[indexPath.row]
-        } else if tableView == firstCV {
-            let vc = DetailUsersViewController()
-            vc.showUsers = viewModel.usersList[indexPath.row]
-        }
-        
-       /* if tableView == firstCV {
-            self.mutableDidSelectItemAt.postValue(viewModel.usersList[indexPath.row])
-        } else {
-            self.mutableDidSelectItemAt.postValue(viewModel.usersList[indexPath.row])
-        }*/
+        mutableDidSelectItemAt.postValue(viewModel.usersList[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        150
+        100
     }
 }

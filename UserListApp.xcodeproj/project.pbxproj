@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B0621B3629BD3DE5004F272D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B3529BD3DE5004F272D /* AppDelegate.swift */; };
 		B0621B3829BD3DE5004F272D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B3729BD3DE5004F272D /* SceneDelegate.swift */; };
-		B0621B4029BD3DE5004F272D /* UserListApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0621B3E29BD3DE5004F272D /* UserListApp.xcdatamodeld */; };
 		B0621B4229BD3DE7004F272D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0621B4129BD3DE7004F272D /* Assets.xcassets */; };
 		B0621B4529BD3DE7004F272D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0621B4329BD3DE7004F272D /* LaunchScreen.storyboard */; };
 		B0621B5029BD3DE7004F272D /* UserListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B4F29BD3DE7004F272D /* UserListAppTests.swift */; };
@@ -28,9 +27,12 @@
 		B0621B8B29BDB37E004F272D /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B8A29BDB37E004F272D /* Globals.swift */; };
 		B0621B8D29BDB439004F272D /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B8C29BDB439004F272D /* UsersListViewModel.swift */; };
 		B0621B9029BDB95B004F272D /* UsersListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B8F29BDB95B004F272D /* UsersListFactory.swift */; };
-		B0621B9329BE3277004F272D /* DetailUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B9129BE3277004F272D /* DetailUsersViewController.swift */; };
-		B0621B9429BE3277004F272D /* DetailUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0621B9229BE3277004F272D /* DetailUsersViewController.xib */; };
+		B0621B9329BE3277004F272D /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B9129BE3277004F272D /* DetailUserViewController.swift */; };
+		B0621B9429BE3277004F272D /* DetailUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0621B9229BE3277004F272D /* DetailUserViewController.xib */; };
 		B0621B9829BEA9EC004F272D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B9729BEA9EC004F272D /* Observable.swift */; };
+		B0621B9B29BF57BC004F272D /* UsersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621B9A29BF57BC004F272D /* UsersListRouter.swift */; };
+		B0621BA229BF7270004F272D /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0621BA129BF7270004F272D /* ViewControllerExtensions.swift */; };
+		B0621BA929BFAAA0004F272D /* UserCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0621BA729BFAAA0004F272D /* UserCD.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,6 @@
 		B0621B3229BD3DE5004F272D /* UserListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0621B3529BD3DE5004F272D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0621B3729BD3DE5004F272D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B0621B3F29BD3DE5004F272D /* UserListApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserListApp.xcdatamodel; sourceTree = "<group>"; };
 		B0621B4129BD3DE7004F272D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0621B4429BD3DE7004F272D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0621B4629BD3DE7004F272D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,9 +77,12 @@
 		B0621B8A29BDB37E004F272D /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		B0621B8C29BDB439004F272D /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
 		B0621B8F29BDB95B004F272D /* UsersListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListFactory.swift; sourceTree = "<group>"; };
-		B0621B9129BE3277004F272D /* DetailUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUsersViewController.swift; sourceTree = "<group>"; };
-		B0621B9229BE3277004F272D /* DetailUsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailUsersViewController.xib; sourceTree = "<group>"; };
+		B0621B9129BE3277004F272D /* DetailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewController.swift; sourceTree = "<group>"; };
+		B0621B9229BE3277004F272D /* DetailUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailUserViewController.xib; sourceTree = "<group>"; };
 		B0621B9729BEA9EC004F272D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B0621B9A29BF57BC004F272D /* UsersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListRouter.swift; sourceTree = "<group>"; };
+		B0621BA129BF7270004F272D /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		B0621BA829BFAAA0004F272D /* UserCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserCD.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +182,7 @@
 		B0621B6A29BD3E41004F272D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B0621B3E29BD3DE5004F272D /* UserListApp.xcdatamodeld */,
+				B0621BA729BFAAA0004F272D /* UserCD.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -217,6 +221,7 @@
 				B0621B7A29BD4E83004F272D /* View */,
 				B0621B7C29BD4EAA004F272D /* ViewModel */,
 				B0621B7D29BD4EB9004F272D /* Repository */,
+				B0621B9929BF5798004F272D /* Router */,
 			);
 			path = UsersList;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 		B0621B8929BDB33F004F272D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B0621BA029BF7260004F272D /* Extensions */,
 				B0621B9629BEA9A6004F272D /* Reactive */,
 				B0621B8A29BDB37E004F272D /* Globals.swift */,
 			);
@@ -286,8 +292,8 @@
 		B0621B9529BE3289004F272D /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				B0621B9129BE3277004F272D /* DetailUsersViewController.swift */,
-				B0621B9229BE3277004F272D /* DetailUsersViewController.xib */,
+				B0621B9129BE3277004F272D /* DetailUserViewController.swift */,
+				B0621B9229BE3277004F272D /* DetailUserViewController.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -298,6 +304,22 @@
 				B0621B9729BEA9EC004F272D /* Observable.swift */,
 			);
 			path = Reactive;
+			sourceTree = "<group>";
+		};
+		B0621B9929BF5798004F272D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B0621B9A29BF57BC004F272D /* UsersListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B0621BA029BF7260004F272D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B0621BA129BF7270004F272D /* ViewControllerExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,7 +428,7 @@
 			files = (
 				B0621B7429BD42F5004F272D /* UsersTableViewCell.xib in Resources */,
 				B0621B4529BD3DE7004F272D /* LaunchScreen.storyboard in Resources */,
-				B0621B9429BE3277004F272D /* DetailUsersViewController.xib in Resources */,
+				B0621B9429BE3277004F272D /* DetailUserViewController.xib in Resources */,
 				B0621B4229BD3DE7004F272D /* Assets.xcassets in Resources */,
 				B0621B6F29BD3F12004F272D /* UsersListViewController.xib in Resources */,
 			);
@@ -434,20 +456,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0621B9829BEA9EC004F272D /* Observable.swift in Sources */,
-				B0621B4029BD3DE5004F272D /* UserListApp.xcdatamodeld in Sources */,
 				B0621B8829BDB041004F272D /* APIConstants.swift in Sources */,
 				B0621B6E29BD3F12004F272D /* UsersListViewController.swift in Sources */,
 				B0621B7729BD4856004F272D /* UsersListAdapter.swift in Sources */,
 				B0621B8629BDAFBA004F272D /* APIError.swift in Sources */,
 				B0621B8429BDAE82004F272D /* APIManager.swift in Sources */,
 				B0621B3629BD3DE5004F272D /* AppDelegate.swift in Sources */,
-				B0621B9329BE3277004F272D /* DetailUsersViewController.swift in Sources */,
+				B0621B9329BE3277004F272D /* DetailUserViewController.swift in Sources */,
+				B0621B9B29BF57BC004F272D /* UsersListRouter.swift in Sources */,
 				B0621B3829BD3DE5004F272D /* SceneDelegate.swift in Sources */,
 				B0621B8B29BDB37E004F272D /* Globals.swift in Sources */,
+				B0621BA929BFAAA0004F272D /* UserCD.xcdatamodeld in Sources */,
 				B0621B9029BDB95B004F272D /* UsersListFactory.swift in Sources */,
 				B0621B8D29BDB439004F272D /* UsersListViewModel.swift in Sources */,
 				B0621B8029BD509B004F272D /* UsersData.swift in Sources */,
 				B0621B8229BD74F1004F272D /* UsersListRepository.swift in Sources */,
+				B0621BA229BF7270004F272D /* ViewControllerExtensions.swift in Sources */,
 				B0621B7329BD42F5004F272D /* UsersTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,12 +641,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CS6D5JZQ9R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UserListApp/Main/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,12 +669,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CS6D5JZQ9R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UserListApp/Main/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -776,13 +804,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B0621B3E29BD3DE5004F272D /* UserListApp.xcdatamodeld */ = {
+		B0621BA729BFAAA0004F272D /* UserCD.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B0621B3F29BD3DE5004F272D /* UserListApp.xcdatamodel */,
+				B0621BA829BFAAA0004F272D /* UserCD.xcdatamodel */,
 			);
-			currentVersion = B0621B3F29BD3DE5004F272D /* UserListApp.xcdatamodel */;
-			path = UserListApp.xcdatamodeld;
+			currentVersion = B0621BA829BFAAA0004F272D /* UserCD.xcdatamodel */;
+			path = UserCD.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

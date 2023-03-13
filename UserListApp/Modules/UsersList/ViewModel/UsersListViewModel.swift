@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum UsersListViewModelOutput {
+    case isLoading(Bool)
+    case didGetData
+    case errorMessage(String)
+}
+
 class UsersListViewModel {
     
     // MARK: - Internal Properties
@@ -14,11 +20,18 @@ class UsersListViewModel {
     var error: GenericCompletionHandler<String> = { _ in }
     var success: CompletionHandler = {}
     var usersList: [UsersData] = []
-    var showAnime: [UsersData] = []
     
     // MARK: - Private Properties
     
     private var repository: UsersListRepositoryProtocol!
+    
+    // MARK: - Observable Properties
+    
+    var outputEvents: Observable<UsersListViewModelOutput> {
+        mutableOutputEvents
+    }
+    
+    private let mutableOutputEvents = MutableObservable<UsersListViewModelOutput>()
     
     // MARK: - Initializers
     
@@ -29,25 +42,25 @@ class UsersListViewModel {
     // MARK: - Internal Methods
     
     func getUsersList() {
-        repository.getUsersList { result in
-            switch result {
-            case .success(let data):
-                self.usersList = data
-                self.success()
-            case .failure(let error):
-                self.error(error.localizedDescription)
-            }
+        print("--Get users list--")
+        let localUsers = repository.getUsers()
+        if localUsers.count > 0  {
+            self.usersList = localUsers
+            self.mutableOutputEvents.postValue(.didGetData)
+            return
         }
-    }
-    
-    func showUsers() {
-        repository.showUser { result in
+        
+        mutableOutputEvents.postValue(.isLoading(true))
+        repository.getUsersList { result in
+            self.mutableOutputEvents.postValue(.isLoading(false))
             switch result {
-            case .success(let users):
-                self.showAnime = users.data ?? []
-                self.success()
+            case .success(let usersList):
+                self.repository.deleteUsersList()
+                self.repository.saveUsersList(usersList)
+                self.usersList = usersList
+                self.mutableOutputEvents.postValue(.didGetData)
             case .failure(let error):
-                self.error(error.localizedDescription)
+                self.mutableOutputEvents.postValue(.errorMessage(error.localizedDescription))
             }
         }
     }

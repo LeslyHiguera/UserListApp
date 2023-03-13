@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsersListViewController" customModule="UserListApp" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="dMt-mK-Tgg" id="Hfm-Pu-dY7"/>
+                <outlet property="activityIndicator" destination="aGD-hB-Dco" id="6Re-Pg-GBf"/>
                 <outlet property="usersTableView" destination="zkt-WR-6AA" id="3b9-vU-Sdi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,18 +23,20 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zkt-WR-6AA">
                     <rect key="frame" x="15" y="74" width="363" height="744"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="dMt-mK-Tgg">
-                        <rect key="frame" x="0.0" y="0.0" width="363" height="759"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </activityIndicatorView>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aGD-hB-Dco">
+                    <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                    <color key="color" systemColor="systemIndigoColor"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="zkt-WR-6AA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="AUv-bu-4HK"/>
+                <constraint firstItem="aGD-hB-Dco" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cCn-r1-tuM"/>
                 <constraint firstItem="zkt-WR-6AA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="gRk-BP-55j"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zkt-WR-6AA" secondAttribute="trailing" constant="15" id="hoC-Vg-JpH"/>
+                <constraint firstItem="aGD-hB-Dco" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ljB-Mz-zZy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zkt-WR-6AA" secondAttribute="bottom" id="ofN-EG-QRm"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
@@ -43,6 +45,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
