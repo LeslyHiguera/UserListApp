@@ -9,28 +9,78 @@ import XCTest
 @testable import UserListApp
 
 final class UserListAppTests: XCTestCase {
+    
+    // MARK: - Private Properties
+    private var requestExpectation: XCTestExpectation?
+    
+    // MARK: - Subject under test
+    private var viewModel: UsersListViewModel!
+    
+    // MARK: - Mock
+    private var repositoryMock: UsersListRepositoryMock!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp()  {
+        super.setUp()
+        repositoryMock = UsersListRepositoryMock()
+        viewModel = UsersListViewModel(repository: repositoryMock)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown()  {
+        super.tearDown()
+        repositoryMock = nil
+        viewModel = nil
+    }
+    
+    // MARK: - Tests getUser
+    
+    func testGetUsersListEvents() {
+        // Given
+        repositoryMock.response = UsersListFake.values
+        // When
+        getUsersListEvents(isLocalData: false)
+        // Then
+        XCTAssertEqual(requestExpectation?.expectationDescription, ResponseExpectation.ok.rawValue)
+    }
+    
+    func testGetUsersLocallyListEvents() {
+        // Given
+        repositoryMock.response = UsersListFake.values
+        // When
+        getUsersListEvents(isLocalData: true)
+        // Then
+        XCTAssertEqual(requestExpectation?.expectationDescription, ResponseExpectation.ok.rawValue)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+}
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+private extension UserListAppTests {
+    
+    func getUsersListEvents(isLocalData: Bool) {
+        requestExpectation = expectation(description: ResponseExpectation.go.rawValue)
+        if isLocalData {
+            viewModel.getUsersListLocally()
+        } else {
+            viewModel.getUsersList()
+        }
+        viewModel.outputEvents.observe { [weak self] event in
+            self?.validateEvents(event: event)
+        }
+        
+        if let requestExpectation = requestExpectation {
+            wait(for: [requestExpectation], timeout: 1)
+        }
+        
+    }
+    
+    private func validateEvents(event: UsersListViewModelOutput) {
+        if case .didGetData = event {
+            requestExpectation?.expectationDescription = ResponseExpectation.ok.rawValue
+            requestExpectation?.fulfill()
+        }
+        if case .errorMessage = event {
+            requestExpectation?.expectationDescription = ResponseExpectation.error.rawValue
+            requestExpectation?.fulfill()
         }
     }
-
+    
 }
